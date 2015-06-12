@@ -6,7 +6,6 @@ set -o pipefail   # don't ignore exit codes when piping output
 
 # Configure directories
 build_dir="$1/client"
-public_dir="$1/public"
 cache_dir=$2
 env_dir=$3
 
@@ -159,7 +158,6 @@ echo "export PATH=\"\$HOME/vendor/node/bin:\$HOME/bin:\$HOME/node_modules/.bin:\
     npm install gulp
     echo "-----> Found gulpfile, running gulp heroku:$NODE_ENV task"
     $build_dir/node_modules/.bin/gulp heroku:$NODE_ENV
-    cp -R $build_dir/temporary_jquery_app $public_dir/account
   else
     echo "-----> No gulpfile found"
   fi
